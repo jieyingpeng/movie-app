@@ -2,12 +2,20 @@
 
 <header class="hero-unit" id="banner">
   <div class="container">
-     <div class="input-group">
-    <input ng-model="searchString" type="text" class="form-control" placeholder="Search for...">
-    <span class="input-group-btn">
-        <button  class="btn btn-default" type="button" ng-click="getMovies(searchString)">Go!</button>
-      </span>
-  </div>
+  <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
+    <div class="col-lg-6 col-lg-offset-3 text-center">
+ <a class= "glyphicon glyphicon-plus"  title="Add to Watchlist" ng-click="getPoster(query)"></a>  
+ 
+
+<!--  <a  title="Add to Watchlist" ng-click="getPoster(query)">click</a>   -->
+
+<!-- scope.watchlist.push($scope.query); console.log($scope.watchlist) -->
+      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" autocomplete ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
+      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-key"></i></button>
+
+    </div>
+    
+  </form>
   </div>
 </header>
 
