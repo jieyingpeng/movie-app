@@ -1,9 +1,11 @@
-// angular.module('movieApp.search', [])
-//   .controller('SearchCtrl', function ($scope, $http, Movies, Search){
-//     var self = this;
-//     $scope.searchString = '';
-//     $scope.movies = Movies.movies;
-//     $scope.logger = function() {
-//       console.log($scope.searchString);
-//     };
-//   });
+'use strict';
+
+angular.module('yoMovieApp')
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('search', {
+        url: '/search',
+        templateUrl: 'app/search/search.html',
+        controller: 'SearchCtrl'
+      });
+  });
