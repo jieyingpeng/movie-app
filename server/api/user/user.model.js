@@ -20,7 +20,11 @@ var UserSchema = new Schema({
   salt: String,
   facebook: {},
   twitter: {},
-  github: {}
+  github: {},
+   movies: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Movie'
+  }]
 });
 
 /**

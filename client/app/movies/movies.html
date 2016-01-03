@@ -8,8 +8,12 @@
     <div class="caption">
       <h3 class="">{{movie.Title}}</h3>
       <h5 class="">{{movie.Awards}}</h5>
-      <button class="btn btn-default" ng-click="list(movie)">Add</button>
+      <button class="btn btn-default" ng-click="list(movie)">Add to Watchlist</button>
       <p class="">{{movie.Plot.slice(0, 100)}}...</p>
+
+
+  
+
       <a href="{{movie.YouTubeURL}}" class="btn btn-default btn-xs" role="button"><i class="glyphicon glyphicon-play"></i></a>
       <a data-toggle="tooltip" title="{{movie.tomatoRating}}" href="" class="btn btn-default btn-xs pull-right" role="button" ng-click="">
         <img src="https://leanflix-production.storage.googleapis.com/production/assets/elements/critics-bc20c6ba489de471c76e312a9ee9244e.png">
@@ -21,3 +25,22 @@
 </div>
 <div class="col-md-10 col-md-offset-1">{{err}}</div>
 <footer></footer>
+
+<script type="text/javascript">autoPlayYouTubeModal();
+
+  //FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
+  function autoPlayYouTubeModal() {
+      var trigger = $("body").find('[data-toggle="modal"]');
+      trigger.click(function () {
+          var theModal = $(this).data("target"),
+              videoSRC = $(this).attr("data-theVideo"),
+              videoSRCauto = videoSRC + "?autoplay=1";
+          $(theModal + ' iframe').attr('src', videoSRCauto);
+          $(theModal + ' button.close').click(function () {
+              $(theModal + ' iframe').attr('src', videoSRC);
+          });
+          $('.modal').click(function () {
+              $(theModal + ' iframe').attr('src', videoSRC);
+          });
+      });
+  }</script>
