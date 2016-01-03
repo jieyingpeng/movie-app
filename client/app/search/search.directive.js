@@ -1,13 +1,13 @@
 'use strict';
 
+
 var key = 'api_key=2c8a02fa36fb5299dcd97bbc84609899';
 var ImgPath = "http://image.tmdb.org/t/p/";
-// var urls = ["", "/cgi-bin/LWP.pl?url=http://en.wikipedia.org", ""];
-// var RTkey = "pfwh96pvezces4nybpv7qf8f";
-
+var urls = ["", "/cgi-bin/LWP.pl?url=http://en.wikipedia.org", ""];
+var RTkey = "pfwh96pvezces4nybpv7qf8f";
 
 angular.module('yoMovieApp')
-  .directive('search', function($http) {
+  .directive('autocomplete', ['$http', function($http) {
     return function(scope, elem, attrs) {
       //    var element = angular.element(elem)[0];
       // console.log(elem)
@@ -21,18 +21,21 @@ angular.module('yoMovieApp')
           // console.log(request.term)
           $http({
             method: "JSONP",
-            url: "https://api.themoviedb.org/3/search/tv?api_key=2c8a02fa36fb5299dcd97bbc84609899&query=" + request.term + '&callback=JSON_CALLBACK'
+            url: "https://api.themoviedb.org/3/search/movie?api_key=2c8a02fa36fb5299dcd97bbc84609899&query=" + request.term + '&callback=JSON_CALLBACK'
 
           }).success(function(data) {
             response(data.results);
           });
+        },
+        messages: function() {
+          noResults: '';
         },
 
         focus: function(event, ui) {
 
           elem.val(ui.item.name);
 
-          //  console.log(ui.item.name)
+          // console.log(ui.item)
           return false;
         },
         select: function(event, ui) {
@@ -48,19 +51,19 @@ angular.module('yoMovieApp')
             scope.queryId.selected = null;
           }
         }
-      }).data("uiAutocomplete")._renderItem = function(ul, item) {
-
+      }).data("ui-autocomplete")._renderItem = function(ul, item) {
+        console.log(item)
 
         if (item.poster_path) {
-          var inner_html = "<a><img width='45' height='68' src=" + ImgPath + "w92" + item.poster_path + "> <strong>" + item.name + "</strong>  " + item.first_air_date + " </a>";
-          return $("<li></li>")
+          var inner_html = "<a><img width='45' height='68' src=" + ImgPath + "w92" + item.poster_path + "> <strong>" + item.original_title + "</strong>  " + item.release_date + " </a>";
+          return $("<div></div>")
             .data("ui-autocomplete-item", item)
             .append(inner_html)
             .appendTo(ul);
         } else {
 
-          var inner_html = "<a> <strong>" + item.name + "</strong>  " + item.first_air_date + " </a>";
-          return $("<li></li>")
+          var inner_html = "<a> <strong>" + item.original_title + "</strong>  " + item.release_date + " </a>";
+          return $("<div></div>")
             .data("ui-autocomplete-item", item)
             .append(inner_html)
             .appendTo(ul);
@@ -71,4 +74,4 @@ angular.module('yoMovieApp')
 
 
     }
-  });
+  }]);

@@ -1,24 +1,9 @@
 <navbar></navbar>
-
-<header class="hero-unit" id="banner">
-  <div class="container">
-  <form id="form" name="form" method="get" class="search form-inline form-horizontal" ng-submit="submit()">
-    <div class="col-lg-6 col-lg-offset-3 text-center">
- <a class= "glyphicon glyphicon-plus"  title="Add to Watchlist" ng-click="getPoster(query)"></a>  
- 
-
-<!--  <a  title="Add to Watchlist" ng-click="getPoster(query)">click</a>   -->
-
-<!-- scope.watchlist.push($scope.query); console.log($scope.watchlist) -->
-      <input type="text" id="Films" id="searchBar" class="form-control input" type="text" name="name" autocomplete ng-model="query" placeholder="Should I watch this?" style="width: 400px" />
-      <button id="submit" type="submit" class="btn btn-primary"><i class="fa fa-key"></i></button>
-
-    </div>
-    
-  </form>
+<div class="container fill">
+  <div class="col-lg-6 col-lg-offset-3 text-center" id="searchBar" >
+    <input type="text" class="form-control input" name="search" autocomplete ng-model="query" placeholder="Type in a movie to get recommendations" />
+    <br>
+    <button class="btn btn-default" type="button" ng-click="getMovies(query)">Go!</button>
   </div>
-</header>
-
-
-
+</div>
 <footer></footer>

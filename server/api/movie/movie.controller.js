@@ -9,7 +9,6 @@
 
 'use strict';
 
-import config from '../../config/environment';
 
 var _ = require('underscore');
 var async = require('async');
@@ -110,7 +109,6 @@ exports.destroy = function(req, res) {
 
 
 
-
 exports.getRecommendations = function(req, res, next) {
   //get title from request. make sure to have a title property
   //and name of movie as value to request recommendations
@@ -118,14 +116,13 @@ exports.getRecommendations = function(req, res, next) {
   title = title.slice(1, title.length - 1).join("");
   //global moviesList variable this is used to send back to the response
   var moviesList;
-
+console.log(process.env.TASTEKID)
   //function to get recommendations with limited data from tastekid
   //this function is to be used with async.series
   //the result will be stored to moviesList
   var getRawRecommendations = function(callback) {
     request
-      .get('https://www.tastekid.com/api/similar?')
-      .query(config.TASTEKID)
+      .get('https://www.tastekid.com/api/similar?k=' + process.env.TASTEKID)
       .query({
         q: title
       })
@@ -136,7 +133,7 @@ exports.getRecommendations = function(req, res, next) {
         if (err) {
           console.log(err);
         } else {
-          moviesList = res.body['Similar']['Results'];
+ moviesList = res.body['Similar']['Results'];
           //this callback is part of superagent, similar to next()/done()
           //it is necessary to have callback() at the end to have the next function
           //in async.series to be executed
@@ -261,4 +258,4 @@ exports.newMovie = function(req, res, next) {
     .fail(function(error) {
       next(error);
     });
-}
+};

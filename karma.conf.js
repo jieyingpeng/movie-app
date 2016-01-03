@@ -13,6 +13,7 @@ module.exports = function(config) {
     files: [
       // bower:js
       'client/bower_components/jquery/dist/jquery.js',
+      'client/bower_components/jquery-ui/ui/jquery-ui.js',
       'client/bower_components/angular/angular.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/bower_components/angular-cookies/angular-cookies.js',
