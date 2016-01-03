@@ -27,22 +27,23 @@ angular.module('yoMovieApp')
             response(data.results);
           });
         },
-        messages: function() {
-          noResults: '';
+        messages: {
+          results: function() {},
+          noResults: ''
         },
 
         focus: function(event, ui) {
 
-          elem.val(ui.item.name);
+          elem.val(ui.item.original_title);
 
           // console.log(ui.item)
           return false;
         },
         select: function(event, ui) {
-          scope.query = ui.item.name;
+          scope.query = ui.item.original_title;
           console.log(scope.query)
-          scope.submit(ui.item.name)
-            //  console.log( ui.item.name)
+          scope.getMovies(ui.item.original_title)
+            //  console.log( ui.item.original_title)
             //  scope.$apply;
           return false;
         },
@@ -52,7 +53,7 @@ angular.module('yoMovieApp')
           }
         }
       }).data("ui-autocomplete")._renderItem = function(ul, item) {
-        console.log(item)
+        //  console.log(item)
 
         if (item.poster_path) {
           var inner_html = "<a><img width='45' height='68' src=" + ImgPath + "w92" + item.poster_path + "> <strong>" + item.original_title + "</strong>  " + item.release_date + " </a>";

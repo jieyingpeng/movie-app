@@ -4,7 +4,7 @@ angular.module('yoMovieApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('movies', {
-        url: '/movies',
+        url: '/movies/:movieName',
         templateUrl: 'app/movies/movies.html',
         controller: 'MoviesCtrl'
       });

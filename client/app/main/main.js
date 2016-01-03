@@ -9,4 +9,15 @@ angular.module('yoMovieApp')
         controller: 'MainController',
         controllerAs: 'main'
       });
-  });
+  })
+  // .run(function($rootScope) {
+
+  //   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+  //     //	 next.referrer = current.id;
+  //     console.log('hi')
+  //     $rootScope.$watch('films')
+
+  //     console.log($rootScope);
+  //     //console.log(event)
+  //   })
+  // })

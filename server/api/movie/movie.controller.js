@@ -116,7 +116,6 @@ exports.getRecommendations = function(req, res, next) {
   title = title.slice(1, title.length - 1).join("");
   //global moviesList variable this is used to send back to the response
   var moviesList;
-console.log(process.env.TASTEKID)
   //function to get recommendations with limited data from tastekid
   //this function is to be used with async.series
   //the result will be stored to moviesList
