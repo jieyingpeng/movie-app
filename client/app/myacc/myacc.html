@@ -2,12 +2,11 @@
 <div class="container">
   <div class="col-md-10 col-md-offset-4">
     <h1>My Movie List</h1></div>
-  <div class="row"> </div>
   <div class="row">
     <div ng-repeat="movie in movies">
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-4 col-centered ">
         <div class="thumbnail">
-          <div ng-click="open(movie)"> <img src="{{movie.Poster}}" alt="..."></div>
+          <div ng-click="open(movie)"> <img height=400px src="{{movie.Poster}}" alt="..."></div>
           <div class="caption">
             <div ng-click="open(movie)">{{ movie.Title }}</div>
             <p><a ng-click="open(movie)" class="btn btn-primary" role="button">Details</a> <a ng-click="deleteMovie(movie._id)" class="btn btn-default" role="button">Delete</a></p>

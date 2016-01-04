@@ -6,12 +6,11 @@ angular.module('yoMovieApp')
     $scope.films = '';
     $scope.msg = ''
     $scope.getMovies = function(movieName) {
-         $scope.msg = 'seaching...'
+      $scope.msg = 'seaching...'
       $http.get('api/movies/getRecommendations?title=%27' + movieName + '%27')
         .success(function(data) {
 
           $scope.films = data;
-          console.log("search", $scope.films);
           $stateParams.movieName = movieName
         })
         .then(function() {
@@ -21,12 +20,6 @@ angular.module('yoMovieApp')
           console.log('Error: ' + err);
         })
 
-
-
     }
-
-
-
-
 
   }])

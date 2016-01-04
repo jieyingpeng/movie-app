@@ -1,14 +1,6 @@
-
-
-
-
-
-
-
-
-
-
-
+.thumbnail {
+    background-color: rgb(226, 219, 219);
+}
 
 .thing-form {
     margin: 20px 0;
@@ -37,7 +29,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-     cursor: pointer;
+    cursor: pointer;
 }
 
 body {
@@ -50,9 +42,10 @@ p {
     margin-top: 30px;
 }
 
-.search a{
+.search a {
     color: #FFFFFF;
 }
+
 .cntr {
     display: table;
     width: 100%;
@@ -122,11 +115,10 @@ p {
     outline-width: 0px;
 }
 
-.fill{
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.fill {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
