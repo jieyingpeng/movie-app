@@ -65,10 +65,27 @@ function removeEntity(res) {
 }
 
 // Gets a list of Movies
+// exports.index = function(req, res) {
+//   Movie.findAsync()
+//     .then(responseWithResult(res))
+//     .catch(handleError(res));
+// };
+
+
 exports.index = function(req, res) {
-  Movie.findAsync()
-    .then(responseWithResult(res))
-    .catch(handleError(res));
+  if (req.baseUrl === '/api/users/me/movies') {
+    Movie.find({
+        user_id: req.user_id
+      })
+      .execAsync()
+      .then(responseWithResult(res))
+      .catch(handleError(res));
+  } else {
+    Movie.findAsync()
+      .then(responseWithResult(res))
+      .catch(handleError(res));
+
+  }
 };
 
 // Gets a single Movie from the DB
@@ -132,7 +149,7 @@ exports.getRecommendations = function(req, res, next) {
         if (err) {
           console.log(err);
         } else {
- moviesList = res.body['Similar']['Results'];
+          moviesList = res.body['Similar']['Results'];
           //this callback is part of superagent, similar to next()/done()
           //it is necessary to have callback() at the end to have the next function
           //in async.series to be executed
