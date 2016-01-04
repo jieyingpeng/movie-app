@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 .thing-form {
     margin: 20px 0;
 }
@@ -25,6 +37,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+     cursor: pointer;
 }
 
 body {
@@ -37,6 +50,9 @@ p {
     margin-top: 30px;
 }
 
+.search a{
+    color: #FFFFFF;
+}
 .cntr {
     display: table;
     width: 100%;

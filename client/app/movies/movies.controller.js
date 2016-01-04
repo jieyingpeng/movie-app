@@ -3,14 +3,14 @@
 angular.module('yoMovieApp')
   .controller('MoviesCtrl', ['$scope', 'Auth', '$state', '$http', function($scope, Auth, $state, $http) {
 
-    $scope.films = '';
+    $scope.movies = '';
     $scope.err = ''
 
     $http.get('api/movies/getRecommendations?title=%27' + $state.params.movieName + '%27')
       .success(function(data) {
-        $scope.films = data;
-        console.log("search", $scope.films);
-        if ($scope.films.length === 0) {
+        $scope.movies = data;
+        console.log("search", $scope.movies);
+        if ($scope.movies.length === 0) {
           $scope.err = 'No Movie Recommendations Found';
         }
 
@@ -43,7 +43,6 @@ angular.module('yoMovieApp')
       }
     }
 
-// http://www.omdbapi.com/?t=the+notebook&tomatoes=true&plot=full
 
 
 
