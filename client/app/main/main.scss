@@ -29,7 +29,6 @@ html,
 body {
     height: 100%;
     margin: 0;
-    cursor: pointer;
 }
 
 body {
@@ -75,7 +74,7 @@ p {
     border-radius: 25px;
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
-    cursor: text;
+      cursor: pointer;
 }
 
 .search:after {
@@ -91,17 +90,20 @@ p {
     transform: rotate(-45deg);
     -webkit-transition: all 200ms ease;
     transition: all 200ms ease;
+    cursor: pointer;
 }
 
 .search.active,
 .search:hover {
     width: 300px;
     margin-right: 0px;
+    cursor: pointer;
 }
 
 .search.active:after,
 .search:hover:after {
     height: 0px;
+    cursor: pointer;
 }
 
 .search input {
@@ -113,6 +115,11 @@ p {
     color: inherit;
     background: transparent;
     outline-width: 0px;
+    cursor: pointer;
+}
+
+.ui-corner-all{
+    cursor: pointer;
 }
 
 .fill {

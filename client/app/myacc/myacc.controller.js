@@ -21,6 +21,11 @@ angular.module('yoMovieApp')
 
     $scope.refresh();
 
+$scope.any = function  () {
+if($scope.movies.length === 0){
+  return true
+}
+}
 
     $scope.open = function(_movie) {
 
