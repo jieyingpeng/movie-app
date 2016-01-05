@@ -57,14 +57,14 @@ angular.module('yoMovieApp')
 
         if (item.poster_path) {
           var inner_html = "<a><img width='45' height='68' src=" + ImgPath + "w92" + item.poster_path + "> <strong>" + item.original_title + "</strong>  " + item.release_date + " </a>";
-          return $("<div></div>")
+          return $("<div class='searchres'></div>")
             .data("ui-autocomplete-item", item)
             .append(inner_html)
             .appendTo(ul);
         } else {
 
           var inner_html = "<a> <strong>" + item.original_title + "</strong>  " + item.release_date + " </a>";
-          return $("<div></div>")
+          return $("<div class='searchres'></div>")
             .data("ui-autocomplete-item", item)
             .append(inner_html)
             .appendTo(ul);
